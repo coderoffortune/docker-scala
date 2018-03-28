@@ -7,7 +7,7 @@ FROM openjdk:9-slim
 ENV SCALA_VERSION=2.12.4
 ENV SCALA_HOME=/usr/share/scala
 
-# Install bash
+# Install scala and cleanup
 RUN apt-get update; \
     apt-get install -y wget; \
     cd "/tmp"; \
@@ -17,6 +17,7 @@ RUN apt-get update; \
     rm "/tmp/scala-${SCALA_VERSION}/bin/"*.bat; \
     mv "/tmp/scala-${SCALA_VERSION}/bin" "/tmp/scala-${SCALA_VERSION}/lib" "${SCALA_HOME}"; \
     ln -s "${SCALA_HOME}/bin/"* "/usr/bin/"; \
+    # Clean ups
     rm -rf /var/lib/apt/lists/*; \
     rm -rf "/tmp/"*
 
