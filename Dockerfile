@@ -18,6 +18,7 @@ RUN apt-get update; \
     mv "/tmp/scala-${SCALA_VERSION}/bin" "/tmp/scala-${SCALA_VERSION}/lib" "${SCALA_HOME}"; \
     ln -s "${SCALA_HOME}/bin/"* "/usr/bin/"; \
     # Clean ups
+    apt-get remove -y wget; \
     rm -rf /var/lib/apt/lists/*; \
     rm -rf "/tmp/"*
 
