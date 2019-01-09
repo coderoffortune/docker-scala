@@ -1,13 +1,8 @@
-#
-# Scala 2.12.4 Dockerfile
+FROM openjdk:8u181-jdk-alpine3.8
 
-# Pull base image
-FROM openjdk:8u151-jdk-alpine3.7
-
-ENV SCALA_VERSION=2.12.4
+ENV SCALA_VERSION=2.12.8
 ENV SCALA_HOME=/usr/share/scala
 
-# Install bash
 RUN apk add --no-cache --virtual=.build-dependencies wget ca-certificates && \
     apk add --no-cache bash && \
     cd "/tmp" && \
